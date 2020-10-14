@@ -1,0 +1,31 @@
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Site Game Multiplyer</title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+	
+</head>
+<body>
+	<h1>Teste Canvas</h1>
+	<canvas id="canvas" width="10" height="10"></canvas>
+	<script type="module">
+		import createGame from './game.js';
+		import createKeyboardListener from './keyboard_listener.js';
+		import renderScreen from './render_screen.js';
+
+		const screen = document.getElementById('canvas');
+		const currentPlayer = 'player1';
+
+		const game = createGame();
+		const keyboardListener = createKeyboardListener(document);
+		keyboardListener.subscribe(game.movePlayer);
+		game.addPlayer({ playerId: 'player1', playerX: 1, playerY: 1 });
+		game.addPlayer({ playerId: 'player1', playerX: 5, playerY: 1 });
+		game.addPlayer({ playerId: 'player1', playerX: 7, playerY: 6 });
+		game.addFruit({ fruitId: 'fruit1', fruitX: 1, fruitY: 8 });
+		game.addFruit({ fruitId: 'fruit2', fruitX: 4, fruitY: 6 });
+
+		renderScreen(screen, game, requestAnimationFrame);
+	</script>
+</body>
+</html>
