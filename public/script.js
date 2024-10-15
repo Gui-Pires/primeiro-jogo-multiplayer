@@ -4,6 +4,20 @@ import renderScreen from './render-screen.js'
 
 let screen = document.getElementById('canvas')
 
+function rgbToHex(r, g, b) {
+    // Limita os valores de r, g, b para estarem no intervalo [0, 255]
+    r = Math.max(0, Math.min(255, r));
+    g = Math.max(0, Math.min(255, g));
+    b = Math.max(0, Math.min(255, b));
+
+    // Converte cada valor para hexadecimal com 2 dígitos, preenchendo com 0 se necessário
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+}
+
+function rgb(a, b, c) {
+	return [a, b, c]
+}
+
 const game = createGame()
 const keyboardListener = createKeyboardListener(document)
 
@@ -37,7 +51,21 @@ socket.on('connect', () => {
 
 socket.on('setup', (state) => {
 	const playerId = socket.id
+	
 	game.getState(state)
+
+	//Atualiza o nickname na tela
+	let nickname = game.state.players[playerId].nickname
+	document.getElementById('nickname-player').value = nickname
+
+	// Atualiza a cor na tela
+	let rgb = game.state.players[playerId].color
+	rgb = rgb.slice(4, -1).split(', ')
+	document.getElementById('color-player').value = rgbToHex(rgb[0], rgb[1], rgb[2])
+
+	setInterval(() => {
+		game.getState(state)
+	}, 10000)
 
 	keyboardListener.registerPlayerId(playerId)
 	keyboardListener.subscribe(game.movePlayer)

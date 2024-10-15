@@ -1,3 +1,5 @@
+import randomNames from './names.js'
+
 export default function createGame() {
 	const state = {
 		players: {},
@@ -24,12 +26,6 @@ export default function createGame() {
 				addFruit()
 			}
 		}, seconds)
-
-		// setInterval(() => {
-		// 	let body = document.getElementsByTagName('body')
-		// 	body.style.backgroundColor = 'black' || 'white' || 'green' || 'blue'
-		// 	console.log('Cor alterada!')
-		// }, 10000)
 	}
 	
 	function subscribe(observerFunction) {
@@ -55,7 +51,7 @@ export default function createGame() {
 		const playerX = 'playerX' in command ? command.playerX : Math.floor(Math.random() * state.screen.width)
 		const playerY = 'playerY' in command ? command.playerY : Math.floor(Math.random() * state.screen.height)
 		const color = 'color' in command ? command.color : `rgb(${Math.floor(Math.random() * 250)}, ${Math.floor(Math.random() * 250)}, ${Math.floor(Math.random() * 250)})`
-		const nickname = 'nickname' in command ? command.nickname : playerId
+		const nickname = 'nickname' in command ? command.nickname : randomNames[Math.floor(Math.random() * 200) - 1]
 		const score = 'score' in command ? command.score : 0
 
 		state.players[playerId] = {
@@ -95,8 +91,6 @@ export default function createGame() {
 
 		state.players[playerId].color = color
 		state.players[playerId].nickname = nickname
-
-		// console.log(`Save settings sucess`)
 
 		notifyAll({
 			type: 'save-settings',
@@ -186,7 +180,6 @@ export default function createGame() {
 			const fruit = state.fruits[fruitId]
 
 			if (player.x === fruit.x && player.y === fruit.y) {
-				// console.log(`COLLISION between ${playerId} and ${fruitId}`)
 				removeFruit({fruitId: fruitId})
 				player.score++
 			}

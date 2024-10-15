@@ -42,7 +42,7 @@
 					<div id="player-settings" class="card-body">
 						<input type="text" id="nickname-player" class="form-control mb-2 align-middle" placeholder="nickname" maxlength="18">
 						<span class="">Color</span>
-						<input type="color" id="color-player" class="mx-1 align-middle" value="#000000">
+						<input type="color" id="color-player" class="mx-1 align-middle">
 					</div>
 					<div class="card-footer text-end">
 						<button id="save-setting" class="btn btn-sm blue white-text">Save</button>
@@ -51,6 +51,33 @@
 			</div>
 			<div class="col my-3 order-lg-1">
 				<canvas id="canvas" class="w-100" width="15" height="15">Seu navegador não possui suporte para o canvas</canvas>
+			</div>
+		</div>
+		<div class="row d-block d-lg-none">
+			<div class="col">
+				<div class="card border-3 w-100 mb-3">
+					<div class="card-header">
+						<h5>Controls</h5>
+					</div>
+					<div class="card-body">
+						<div class="row justify-content-center text-center">
+							<div class="col-2">
+								<button name="btnScreen" class="btn btn-outline-secondary w-100 h-100" value="ArrowUp"><i class="bi bi-arrow-up"></i></button>
+							</div>
+						</div>
+						<div class="row justify-content-center text-center">
+							<div class="col-2">
+								<button name="btnScreen" class="btn btn-outline-secondary w-100" value="ArrowLeft"><i class="bi bi-arrow-left"></i></button>
+							</div>
+							<div class="col-2 mt-5">
+								<button name="btnScreen" class="btn btn-outline-secondary w-100 h-100" value="ArrowDown"><i class="bi bi-arrow-down"></i></button>
+							</div>
+							<div class="col-2">
+								<button name="btnScreen" class="btn btn-outline-secondary w-100" value="ArrowRight"><i class="bi bi-arrow-right"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

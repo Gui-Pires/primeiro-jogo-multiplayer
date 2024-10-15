@@ -19,9 +19,13 @@ export default function createKeyboardListener(document) {
 	}
 
 	document.addEventListener('keydown', handleKeyDown)
+	const btnsScreen = document.getElementsByName('btnScreen')
+	for (let i = 0; i < 4; i++) {
+		btnsScreen[i].addEventListener('click', handleKeyDown)
+	}
 	
 	function handleKeyDown(event){
-		const keyPressed = event.key
+		const keyPressed = event.type == 'keydown' ? event.key : event.currentTarget.value
 	
 		const command = {
 			type: 'move-player',
