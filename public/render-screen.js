@@ -5,12 +5,14 @@ export default function renderScreen(screen, game, requestAnimationFrame, curren
 	let rankingScore = []
 	let totalPlayers = 0
 	const ctx = screen.getContext('2d')
+	// const image = document.getElementById('img-game')
 	ctx.clearRect(0, 0, screen.width, screen.height)
 
 	for (const fruitId in game.state.fruits) {
 		const fruit = game.state.fruits[fruitId]
 		ctx.fillStyle = 'rgb(210, 65, 65)' // vermelha
 		ctx.fillRect(fruit.x, fruit.y, 1, 1)
+		// ctx.drawImage(image, fruit.x, fruit.y, 2, 2)
 	}
 	
 	for (const playerId in game.state.players) {
