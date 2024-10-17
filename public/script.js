@@ -14,10 +14,6 @@ function rgbToHex(r, g, b) {
     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
 }
 
-function rgb(a, b, c) {
-	return [a, b, c]
-}
-
 const game = createGame()
 const keyboardListener = createKeyboardListener(document)
 
@@ -25,7 +21,7 @@ const socket = io()
 socket.on('connect', () => {
 	const playerId = socket.id
 
-	renderScreen(screen, game, requestAnimationFrame, playerId)
+	renderScreen(screen, game, requestAnimationFrame, playerId, socket)
 
 	const btnSaveSettings = document.getElementById('save-setting')
 	btnSaveSettings.addEventListener('click', () => {
@@ -40,6 +36,15 @@ socket.on('connect', () => {
 				}
 				socket.emit('save-settings', temp)
 			}
+	})
+
+	const btnSaveRecord = document.getElementById('save-record')
+	btnSaveRecord.addEventListener('click', () => {
+		const temp = {
+			type: 'save-record',
+			playerId: playerId
+		}
+		socket.emit('save-record', temp)
 	})
 
 	socket.on('disconnect', (socketServer) => {
@@ -64,7 +69,7 @@ socket.on('setup', (state) => {
 	document.getElementById('color-player').value = rgbToHex(rgb[0], rgb[1], rgb[2])
 
 	setInterval(() => {
-		game.getState(state)
+		game.getState()
 	}, 10000)
 
 	keyboardListener.registerPlayerId(playerId)
@@ -100,4 +105,12 @@ socket.on('remove-fruit', (command) => {
 
 socket.on('save-settings', (command) => {
 	game.saveSettings(command)
+})
+
+socket.on('load-record', (command) => {
+	game.state.bestPlayer = command.bestPlayer
+})
+
+socket.on('save-record', (command) => {
+	game.saveRecord(command)
 })

@@ -5,14 +5,30 @@ export default function renderScreen(screen, game, requestAnimationFrame, curren
 	let rankingScore = []
 	let totalPlayers = 0
 	const ctx = screen.getContext('2d')
-	// const image = document.getElementById('img-game')
 	ctx.clearRect(0, 0, screen.width, screen.height)
+
+	let bestAllTime = document.getElementById('best-all-time')
+	bestAllTime.innerHTML = ''
+
+	const rankingBestPlayers = {...game.state.bestPlayer}
+
+	for (const bestPlayerId in rankingBestPlayers) {
+		if (bestPlayerId && counter < topRanking) {
+			const bestPlayer = game.state.bestPlayer[bestPlayerId]
+			const bestColor = bestPlayer.color
+			bestAllTime.innerHTML += `<span class="float-start mx-2" style="color: ${bestColor};">${(counter+1)}</span>`
+			bestAllTime.innerHTML += `<span class="float-end mx-2" style="color: ${bestColor};">${bestPlayer.score}</span>`
+			bestAllTime.innerHTML += `<p class="card-text mx-2" style="color: ${bestColor};">${bestPlayer.nickname}</p>`
+			counter++
+		}
+	}
+
+	counter = 0
 
 	for (const fruitId in game.state.fruits) {
 		const fruit = game.state.fruits[fruitId]
-		ctx.fillStyle = 'rgb(210, 65, 65)' // vermelha
+		ctx.fillStyle = 'rgb(210, 65, 65)'
 		ctx.fillRect(fruit.x, fruit.y, 1, 1)
-		// ctx.drawImage(image, fruit.x, fruit.y, 2, 2)
 	}
 	
 	for (const playerId in game.state.players) {

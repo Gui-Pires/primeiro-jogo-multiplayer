@@ -23,21 +23,7 @@
 	<div class="container">
 		<div class="row row-cols-1 row-cols-lg-2 ">
 			<div class="col d-flex flex-column align-items-center my-3 order-lg-2">
-				<div class="card border-3 w-100 mb-3 card-toggle-screen">
-					<div class="card-header">
-						<span id="total-players" class="float-end mx-2"></span>
-						<span id="total-fruits" class="float-end mx-2"></span>
-						<h5>Ranking</h5>
-					</div>
-					<div id="table-scores" class="card-body">
-						<p class="card-text"></p>
-					</div>
-					<div id="current-player-footer" class="card-footer">
-						<span id="score-player" class="float-end"></span>
-						<h6 id="tag-player">Loading...</h6>
-					</div>
-				</div>
-				<div class="card border-3 w-100 mb-3 card-toggle-screen">
+				<div class="card border-3 w-100 mb-3">
 					<div class="card-header">
 						<h5>Player Settings</h5>
 					</div>
@@ -48,6 +34,27 @@
 					</div>
 					<div class="card-footer text-end">
 						<button id="save-setting" class="btn btn-sm blue white-text">Save</button>
+					</div>
+				</div>
+				<div class="card border-3 w-100 mb-3">
+					<div class="card-header">
+						<span id="total-players" class="float-end mx-2"></span>
+						<span id="total-fruits" class="float-end mx-2"></span>
+						<h5>Ranking</h5>
+					</div>
+					<div id="table-scores" class="card-body"></div>
+					<div id="current-player-footer" class="card-footer">
+						<span id="score-player" class="float-end"></span>
+						<h6 id="tag-player">Loading...</h6>
+					</div>
+				</div>
+				<div class="card border-3 w-100 mb-3">
+					<div class="card-header">
+						<h5>Best of all time</h5>
+					</div>
+					<div id="best-all-time" class="card-body"></div>
+					<div class="card-footer text-end">
+						<button id="save-record" class="btn btn-sm blue white-text">Register</button>
 					</div>
 				</div>
 			</div>

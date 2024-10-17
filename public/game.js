@@ -4,6 +4,7 @@ export default function createGame() {
 	const state = {
 		players: {},
 		fruits: {},
+		bestPlayer: {},
 		screen: {
 			width: 15,
 			height: 15
@@ -100,6 +101,26 @@ export default function createGame() {
 		})
 	}
 
+	function loadRecord(command) {
+		state.bestPlayer = command
+
+		notifyAll({
+			type: 'load-record',
+			bestPlayer: command
+		})
+	}
+
+	function saveRecord(command) {
+		const playerId = command.playerId
+		state.bestPlayer = command.bestPlayer
+
+		notifyAll({
+			type: 'save-record',
+			playerId: playerId,
+			bestPlayer: command.bestPlayer
+		})
+	}
+
 	function addFruit(command) {
 		const fruitId = command ? command.fruitId : Math.floor(Math.random() * 1000000)
 		const fruitX = command ? command.fruitX : Math.floor(Math.random() * state.screen.width)
@@ -192,6 +213,8 @@ export default function createGame() {
 		addFruit,
 		removeFruit,
 		saveSettings,
+		loadRecord,
+		saveRecord,
 		movePlayer,
 		state,
 		getState,
