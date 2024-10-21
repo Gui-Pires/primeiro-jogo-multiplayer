@@ -21,7 +21,7 @@ const socket = io()
 socket.on('connect', () => {
 	const playerId = socket.id
 
-	renderScreen(screen, game, requestAnimationFrame, playerId, socket)
+	renderScreen(screen, game, requestAnimationFrame, playerId)
 
 	const btnSaveSettings = document.getElementById('save-setting')
 	btnSaveSettings.addEventListener('click', () => {
@@ -69,7 +69,7 @@ socket.on('setup', (state) => {
 	document.getElementById('color-player').value = rgbToHex(rgb[0], rgb[1], rgb[2])
 
 	setInterval(() => {
-		game.getState()
+		game.state = game.getStateForce()
 	}, 10000)
 
 	keyboardListener.registerPlayerId(playerId)

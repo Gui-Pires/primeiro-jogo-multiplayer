@@ -11,6 +11,13 @@
 	text-decoration-line: underline !important;
 }
 
+@media screen and (min-width: 768px) {
+    #settings-screen{
+		max-height: 85vh;
+    	overflow: auto; 
+    }
+}
+
 /* Utilitários */
 /* Width % */
 .min-w-25 {

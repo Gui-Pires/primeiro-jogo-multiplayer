@@ -47,6 +47,10 @@ export default function createGame() {
 		Object.assign(state, newState)
 	}
 
+	function getStateForce() {
+		return state
+	}
+
 	function addPlayer(command) {
 		const playerId = command.playerId
 		const playerX = 'playerX' in command ? command.playerX : Math.floor(Math.random() * state.screen.width)
@@ -218,6 +222,7 @@ export default function createGame() {
 		movePlayer,
 		state,
 		getState,
+		getStateForce,
 		subscribe,
 		unsubscribeAll,
 		start,
