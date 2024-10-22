@@ -20,7 +20,7 @@ const keyboardListener = createKeyboardListener(document)
 const socket = io()
 socket.on('connect', () => {
 	const playerId = socket.id
-
+	
 	renderScreen(screen, game, requestAnimationFrame, playerId)
 
 	const btnSaveSettings = document.getElementById('save-setting')
