@@ -27,6 +27,8 @@ Basta [clicar aqui](https://fruit-game-zsci.onrender.com/) para jogar! 🚀
 O objetivo do jogo é coletar a maior quantidade de fruitinhas que puder, enquanto compete com outros jogadores para ver quem pega mais!
 Você pode acompanhar o ranking dos jogadores com a maior quantidade de frutinhas coletadas no momento. Também existe um ranking para os melhores jogadores que registraram seu recorde!
 
+![Gameplay](FruitGame.gif)
+
 ### Como Jogar
 Basta precissionar as teclas de setas para se movimentar!\
 🟦⬆️🟦\
