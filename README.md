@@ -5,7 +5,7 @@
 ## Índice 📑
 
 - [Sobre Fruit Game](#fruit-game)
-- [Instalação e execução 💻](#onde-e-como-jogar-)
+- [Onde e Como Jogar 🎮](#onde-e-como-jogar-)
   - [Objetivo do Jogo](#objetivo-do-jogo)
   - [Como Jogar](#como-jogar)
 - [Ferramentas 🔧](#ferramentas-)
