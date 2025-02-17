@@ -63,4 +63,4 @@ Além disso é possível salvar o registro do ranking em um arquivo `JSON`, na p
 
 ## Licença
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para mais detalhes.
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
