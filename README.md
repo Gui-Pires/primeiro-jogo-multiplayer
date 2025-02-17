@@ -1,6 +1,6 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-JS-yellow.svg)
 ![Node](https://img.shields.io/badge/DevOps-Node-green)
-![Licence](https://img.shields.io/badge/License-Open-blue.svg)
+![Licence](https://img.shields.io/badge/License-MIT-blue.svg)
 
 ## Índice 📑
 
@@ -63,4 +63,4 @@ Além disso é possível salvar o registro do ranking em um arquivo `JSON`, na p
 
 ## Licença
 
-Este projeto não possui nenhuma licença! 🚀
+Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para mais detalhes.
